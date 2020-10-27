@@ -13,7 +13,7 @@ class bookManager {
 
   // Récupère un livre
   public function getBook() {
-
+    
   }
 
   // Ajoute un nouveau livre
