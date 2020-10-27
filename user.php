@@ -6,9 +6,16 @@ require "model/entity/user.php";
 require "model/userManager.php";
 require "model/entity/book.php";
 require "model/bookManager.php";
+require "model/dataBase.php";
 
 
-// code ici 
+if(isset($_GET["id"])){
+    $id = htmlspecialchars($_GET["id"]);
+    }
+    $userManager = new userManager();
+    $user = $userManager->getUserById($id);
+
+
 
 
 

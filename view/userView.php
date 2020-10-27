@@ -1,6 +1,9 @@
 <?php
 
 include 'template/header.php';
+
+
+var_dump($user);// FAIRE LA VUE 
 ?>
 
 <main>
