@@ -14,7 +14,14 @@ if(isset($_POST["addbook"]) && !empty($_POST["addbook"])){
     //CALL ADDBOOK
     $result = $bookManager->addBook($book);
     if($result){
-        header("Location: index.php");
+        echo "<div class='alert alert-success' role='alert'>
+        your book has been added successfully 
+        </div>";
+    }
+    else{
+        echo "<div class='alert alert-danger' role='alert'>
+        This is a danger alert—check it out!
+      </div>";
     }
     
 }
