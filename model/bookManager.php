@@ -21,5 +21,9 @@ class bookManager {
   public function updateBookStatus() {
 
   }
+  // Supprime un livre 
+  public function removeBook() {
+
+  }
 
 }
