@@ -12,15 +12,17 @@ class Book {
     protected $owner_id;
     
     public function __construct(array $data = NULL){
-            $this->hydrate($data);
-    }
-    private function hydrate(array $data = NULL){
         if($data){
+            $this->hydrate($data);
+        }
+    }
+    private function hydrate(array $data){
+        
             foreach ($data as $key => $value) {
                 $method = "set" . ucfirst($key);
                 if(method_exists($this, $method)){
                     $this->$method($value);
-                }
+                
             }
         }
     }
@@ -82,6 +84,6 @@ class Book {
         return $this->owner_id;
     }
 
-    // HYDRATEUR ? 
+
 
 }
