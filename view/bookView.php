@@ -4,9 +4,8 @@ include 'template/header.php';
 ?>
 
 <main>
-    <p>Vos utilisateurs en base de données s'affichent sur cette page</p>
+    <p>Le livre sur lequel on a cliqué s'affiche ici</p>
 </main>
-
 
 
 <?php 

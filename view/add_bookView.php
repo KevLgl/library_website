@@ -4,8 +4,9 @@ include 'template/header.php';
 ?>
 
 <main>
-    <p>Vos utilisateurs en base de données s'affichent sur cette page</p>
+    <p>Le formulaire pour ajouter le livre s'affiche là</p>
 </main>
+
 
 
 
