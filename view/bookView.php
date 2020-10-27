@@ -1,14 +1,13 @@
 <?php
 
 include 'template/header.php';
-
-var_dump($book); // FAIRE CARTE LIVRE + VUE 
+ // FAIRE CARTE LIVRE + VUE 
 ?>
 
 <main>
     <div class="card w-50 m-3">
     <div class="card-header text-center">
-        <?php echo $book->getTitle(); ?>
+       <h2> <?php echo $book->getTitle(); ?> </h2>
     </div>
     <div class="card-body">
         <h5 class="card-title">Author:</h5>
@@ -27,16 +26,12 @@ var_dump($book); // FAIRE CARTE LIVRE + VUE
         <p class="card-text"><?php echo $book->getSummary(); ?></p>
         <hr class="my-4">
         <h5 class="card-title">Owner id:</h5>
-        <p class="card-text"><?php echo $book->getAuthor(); ?></p>
+        <p class="card-text"><?php echo $book->getOwner_id(); ?></p>
         <hr class="my-4">
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>
 
-
-
-
-    <hr class="my-4">
 </main>
 
 
