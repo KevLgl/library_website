@@ -45,12 +45,6 @@ include 'template/header.php';
 
 
 <?php 
-if(isset($_POST["addbook"]) && !empty($_POST["addbook"])){
-    $book = new Book($_POST);
-    var_dump($book);
-}
-
-
     include 'template/footer.php';
 ?>
 
