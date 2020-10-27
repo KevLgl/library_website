@@ -4,14 +4,9 @@ require "model/entity/book.php";
 require "model/bookManager.php";
 require "model/dataBase.php";
 
-
-$query = dataBase::getPDOConnexion()->query(
-    "SELECT *
-     FROM Book
-     ");
-    $books =  $query->fetchAll(PDO::FETCH_CLASS, "Book"); 
-
-    var_dump($books);
+$bookManager = new bookManager();
+$books = $bookManager->getBooks();
+    
 
 
 

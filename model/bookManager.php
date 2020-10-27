@@ -4,7 +4,11 @@ class bookManager {
 
   // Récupère tous les livres
   public function getBooks() {
-
+    $query = dataBase::getPDOConnexion()->query(
+      "SELECT *
+       FROM Book
+       ");
+      return $query->fetchAll(PDO::FETCH_CLASS, "Book"); 
   }
 
   // Récupère un livre
