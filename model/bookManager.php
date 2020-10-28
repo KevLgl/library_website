@@ -45,7 +45,25 @@ class bookManager {
       return $result;
     }
   
-
+    public function getBooksByUser($id){
+      $query = dataBase::getPDOConnexion()->prepare(
+      'SELECT id, title, author, owner_id
+      FROM Book
+      WHERE owner_id = :user_id
+      ');
+  
+      $query->execute([
+      "user_id" => $id
+      ]);
+      
+      if($query === false){
+        var_dump($pdo->errorInfo());
+        die('erreur SQL');
+      }
+      
+      return $query->fetchAll(PDO::FETCH_CLASS, "Book");
+      
+  }
   // Met à jour le statut d'un livre emprunté
   public function updateBookStatus() {
 

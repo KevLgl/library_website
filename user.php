@@ -13,10 +13,13 @@ if(isset($_GET["id"])){
     $id = htmlspecialchars($_GET["id"]);
     }
     $userManager = new userManager();
+    $bookManager = new bookManager();
     $user = $userManager->getUserById($id);
 
+    $booksByUser = $bookManager->getBooksByUser($id);
 
-
-
+    foreach($booksByUser as $bookByUser){
+        var_dump($bookByUser);
+    }
 
 require "view/userView.php";

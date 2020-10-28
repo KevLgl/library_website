@@ -10,8 +10,25 @@ require "model/dataBase.php";
 if(isset($_GET["id"])){
 $id = htmlspecialchars($_GET["id"]);
 }
+//create variable manager
 $bookManager = new bookManager();
+$userManager = new userManager();
+
+//creat Book selected
 $book = $bookManager->getBook($id);
+
+
+$owner_id = $book->getOwner_id();
+
+
+$userByBook = $userManager->getUserByBook($owner_id);
+
+
+
+
+
+
+
 
 
 
