@@ -26,8 +26,31 @@ class userManager {
     return $query->fetchAll(PDO::FETCH_CLASS, "User")[0];
   }
 
+
+  public function getUserByBook($owner_id){
+    $query = dataBase::getPDOConnexion()->prepare(
+    'SELECT id, lastname, firstname, age, city, phone, email
+    FROM User 
+    WHERE id = :owner_id
+    ');
+
+    $query->execute([
+    "owner_id" => $owner_id
+    ]);
+    
+    if($query === false){
+      var_dump($pdo->errorInfo());
+      die('erreur SQL');
+    }
+    if($owner_id){
+    return $query->fetchAll(PDO::FETCH_CLASS, "User")[0];
+    }
+}
+
+
   // Récupère un utilisateur par son code personnel
   public function getUser() {
 
   }
+
 }
