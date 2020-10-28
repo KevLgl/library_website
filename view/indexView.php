@@ -23,7 +23,6 @@ include 'template/header.php';
            // IF THIS BOOK HAVN'T OWNER, his status is available
            if($book->getOwner_id() === NULL){
             $book->setStatus("available");
-            echo $status;
            }
            // IF THIS BOOK HAS OWNER, his status is unavailable
            else{

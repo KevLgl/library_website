@@ -9,10 +9,22 @@ class User {
     protected $phone;
     protected $email;
 
-    public function __construct(){
-
+    public function __construct(array $data = NULL){
+        if($data){
+            $this->hydrate($data);
+        }
     }
 
+    private function hydrate(array $data){
+        
+        foreach ($data as $key => $value) {
+            $method = "set" . ucfirst($key);
+            if(method_exists($this, $method)){
+                $this->$method($value);
+            
+            }
+        }
+    }   
 
     // GETTERS & SETTERS 
     //ID
