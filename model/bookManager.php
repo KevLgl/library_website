@@ -64,10 +64,31 @@ class bookManager {
       return $query->fetchAll(PDO::FETCH_CLASS, "Book");
       
   }
-  // Met à jour le statut d'un livre emprunté
-  public function updateBookStatus() {
-
+  // Met à jour le statut d'un livre emprunté à NULL 
+  public function updateBookStatusNULL(Book $book):bool {
+      $query = dataBase::getPDOConnexion()->prepare( 
+        "UPDATE Book
+        SET owner_id = NULL
+        WHERE id = :id"
+      );
+      $result = $query->execute([
+        "id" => $book->getId()
+      ]); 
+      return $result;
   }
+
+  public function updateBookStatusUser(User $user, Book $book):bool {
+    $query = dataBase::getPDOConnexion()->prepare( 
+      "UPDATE Book
+      SET owner_id = :user_id
+      WHERE id = :id"
+    );
+    $result = $query->execute([
+      "user_id" => $user->getId(),
+      "id" => $book->getId()
+    ]); 
+    return $result;
+}
   // Supprime un livre 
   public function removeBook() {
 

@@ -43,8 +43,10 @@ include 'template/header.php';
                             <hr class="my-4">
                             <h5 class="card-title">Id number</h5>
                             <p class="card-text"><?php echo $userByBook->getId(); ?></p>
-                            <hr class="my-4">
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <hr class="my-4"> 
+                            <form action="" method="POST">
+                                <input  name="updatenull" type="submit" value="This user has give back" class="btn btn-danger">
+                            </form>
                         </div>
             <?php }else{?>  
             <!-- else, show form to add one owner -->

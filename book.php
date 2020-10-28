@@ -16,12 +16,25 @@ $userManager = new userManager();
 
 //creat Book selected
 $book = $bookManager->getBook($id);
-
-
 $owner_id = $book->getOwner_id();
 
-
+// get owner of the book
 $userByBook = $userManager->getUserByBook($owner_id);
+//dUPDATE BOOK TO OWNER_ID = NULL
+if(isset($_POST['updatenull']) && !empty($_POST['updatenull'])){
+    $bookManager->updateBookStatusNULL($book);
+    header("Location: index.php");
+}
+// UPDATE BOOK TO OWNER ID = ID IN $_POST
+if(isset($_POST['lendbook']) && !empty($_POST['lendbook'])){
+     $lendUser = $userManager->getUserById($_POST['UserID']);
+     $bookManager->updateBookStatusUser($lendUser, $book);
+     header("Location: index.php");
+     
+}
+
+
+
 
 
 
