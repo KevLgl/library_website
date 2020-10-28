@@ -33,11 +33,17 @@ include 'template/header.php';
                 <h2>List of book(s) owned  </h2>
                 </div>
                 <div class="card-body">
+                <!-- get book(s) of the user -->
                 <?php foreach($booksByUser as $bookByUser){ ?>
                     <div class="card m-2 text-center">
                     <h5 class="card-title"> <?php echo $bookByUser->getTitle(); ?> </h5>
                     <p class="card-text"> <?php echo "Book ID : " . $bookByUser->getId(); ?> </p>
-                    <a href="#" class="btn btn-danger m-2">given back</a>
+                   <!-- button for delete owner -->
+                    <form action="" method="POST">
+                                <input hidden name="bookCliqued" type="text" value="<?php echo $bookByUser->getId(); ?>"">
+                                <input name="updatenull" type="submit" value="Given back" class="btn btn-danger m-3">
+                                
+                            </form>
                     </div>
                 <?php } ?>
                     <form id="form" action="" method="post" class="m-3">

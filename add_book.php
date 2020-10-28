@@ -20,7 +20,7 @@ if(isset($_POST["addbook"]) && !empty($_POST["addbook"])){
     }
     else{
         echo "<div class='alert alert-danger' role='alert'>
-        This is a danger alert—check it out!
+        Il y a un probleme dans votre formulaire
       </div>";
     }
     

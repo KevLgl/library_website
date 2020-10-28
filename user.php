@@ -12,14 +12,33 @@ require "model/dataBase.php";
 if(isset($_GET["id"])){
     $id = htmlspecialchars($_GET["id"]);
     }
+    //create variable manager
     $userManager = new userManager();
     $bookManager = new bookManager();
+
+    //create user selected
     $user = $userManager->getUserById($id);
 
+    // get book(s) if user got
     $booksByUser = $bookManager->getBooksByUser($id);
 
-    foreach($booksByUser as $bookByUser){
-        var_dump($bookByUser);
+
+   
+    //UPDATE BOOK TO OWNER_ID = NULL
+    if(isset($_POST['updatenull']) && !empty($_POST['updatenull'])){
+        
+        
+        //get id of cliqued bo
+       $idBookCliqued= $_POST["bookCliqued"];
+       // we get the book with the id
+       $bookCliqued = $bookManager->getBook($idBookCliqued);
+
+       $bookManager->updateBookStatusNULL($bookCliqued);
+        header("Location: user.php?id={$id}");
+
     }
+
+
+
 
 require "view/userView.php";
