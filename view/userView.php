@@ -42,7 +42,7 @@ include 'template/header.php';
                 <?php } ?>
                     <form id="form" action="" method="post" class="m-3">
                     <h2>This guys want new book ?</h2>
-                    <h3>Enter book ID to lend him </h3>
+                    <h3>Enter book ID to lend this book </h3>
                     <div class="form-group">
                         <label for="InputBookID">Book ID</label>
                         <input name="BookID" type="number" class="form-control" id="InputBookID" aria-describedby="bookIDHelp" placeholder="Enter Book ID">
