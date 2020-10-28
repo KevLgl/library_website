@@ -58,6 +58,7 @@ class Book {
     //STATUS
     public function setStatus(string $status){
         $this->status = $status;
+        return $this;
     }
     public function getStatus(){
         return $this->status;
