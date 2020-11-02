@@ -57,14 +57,23 @@ include 'template/header.php';
             <form id="form" action="" method="post" class="m-3">
                 <h2>Nobody has this book</h2>
                 <h3>Enter user ID to lend him </h3>
-                <div class="form-group">
-                    <label for="InputUserID">User ID</label>
-                    <input name="UserID" type="number" class="form-control" id="InputUserID" aria-describedby="userIDHelp" placeholder="Enter User ID">
-                </div>
-                <div>
+
+            <div class="form-group">
+                <label for="selectUser">Select user</label>
+                <select class="form-control" id="selectUser" name="UserID">
+                <!-- catch all users for display them -->
+                <?php foreach ($users as $user) {  ?>
+                <option> <?php echo $user->getId() . " - " . $user->getFirstname() . " " . $user->getLastname(); ?> </option>
+                <?php } ?>
+
+                </select>
+            </div>
+
+            <div>
                     <input class="btn btn-primary" type="submit" name="lendbook" value="to lend">
                 </div>
             </form>
+
           
 
             <?php }?>
