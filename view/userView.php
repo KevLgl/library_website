@@ -49,9 +49,16 @@ include 'template/header.php';
                     <form id="form" action="" method="post" class="m-3">
                     <h2>This guys want new book ?</h2>
                     <h3>Enter book ID to lend this book </h3>
+
                     <div class="form-group">
-                        <label for="InputBookID">Book ID</label>
-                        <input name="BookID" type="number" class="form-control" id="InputBookID" aria-describedby="bookIDHelp" placeholder="Enter Book ID">
+                        <label for="selectUser">Select book</label>
+                        <select class="form-control" id="InputBookID" name="BookID">
+                        <!-- catch all users for display them -->
+                        <?php foreach ($availableBooks as $availableBook) {  ?>
+                        <option> <?php echo $availableBook->getId() . " - " . $availableBook->getTitle(); ?> </option>
+                        <?php } ?>
+
+                        </select>
                     </div>
                     <div>
                         <input class="btn btn-primary" type="submit" name="lendbook" value="to lend">
