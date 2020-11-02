@@ -49,7 +49,7 @@ include 'template/header.php';
                             <p class="card-text"><?php echo $userByBook->getId(); ?></p>
                             <hr class="my-4"> 
                             <form action="" method="POST">
-                                <input  name="updatenull" type="submit" value="This user has give back" class="btn btn-danger">
+                                <input  name="updatenull" type="submit" value="This user has give back" class="btn btn-info">
                             </form>
                         </div>
             <?php }else{?>  

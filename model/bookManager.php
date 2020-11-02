@@ -16,12 +16,10 @@ class bookManager {
     $query = dataBase::getPDOConnexion()->prepare(
       "SELECT id, title, author, release_date, status, categories, summary, owner_id
        FROM Book
-       WHERE id = :id
-      --  AND user_id = :user_id"
+       WHERE id = :id"
      );
     $query->execute([
-      "id" => $id,
-      // "user_id" => $user["id"]
+      "id" => $id
     ]);
     return $query->fetchAll(PDO::FETCH_CLASS, "Book")[0];
   }
