@@ -92,13 +92,21 @@ class bookManager {
     $query = dataBase::getPDOConnexion()->prepare(
       "DELETE 
        FROM Book
-       WHERE id = :id
-      --  AND user_id = :user_id"
+       WHERE id = :id"
      );
     $query->execute([
-      "id" => $book->getId(),
-      // "user_id" => $user["id"]
+      "id" => $book->getId()
     ]);
   }
+    // get moove with statut available
+    public function getBooksAvailable():array {
+      $query = dataBase::getPDOConnexion()->query(
+        "SELECT *
+         FROM Book
+         WHERE owner_id IS NULL
+         ");
+        return $query->fetchAll(PDO::FETCH_CLASS, "Book"); 
+    }
+
 
 }

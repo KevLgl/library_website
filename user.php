@@ -22,6 +22,8 @@ if(isset($_GET["id"])){
     // get book(s) if user got
     $booksByUser = $bookManager->getBooksByUser($id);
 
+    //get book(s) available
+    $availableBooks = $bookManager->getBooksAvailable();
 
    
     //UPDATE BOOK TO OWNER_ID = NULL
