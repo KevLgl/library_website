@@ -31,6 +31,7 @@ if(isset($_POST['lendbook']) && !empty($_POST['lendbook'])){
      $bookManager->updateBookStatusUser($lendUser, $book);
      header("Location: index.php");
 }
+// REMOVE DEFINITELY 
 if(isset($_POST['removebook']) && !empty($_POST['removebook'])){
     $removedBook = $bookManager->getBook($id);
     $bookManager->removeBook($removedBook);

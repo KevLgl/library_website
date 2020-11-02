@@ -26,18 +26,23 @@ if(isset($_GET["id"])){
    
     //UPDATE BOOK TO OWNER_ID = NULL
     if(isset($_POST['updatenull']) && !empty($_POST['updatenull'])){
-        
-        
-        //get id of cliqued bo
+        //get id of cliqued book
        $idBookCliqued= $_POST["bookCliqued"];
        // we get the book with the id
        $bookCliqued = $bookManager->getBook($idBookCliqued);
-
+   
        $bookManager->updateBookStatusNULL($bookCliqued);
         header("Location: user.php?id={$id}");
-
     }
-
+    //UPDATE BOOK TO OWNER_ID = $is in $_POST
+    if(isset($_POST['lendbook']) && !empty($_POST['lendbook'])){
+        //get id of cliqued book
+        $typedID = $_POST['BookID'];
+        // get the book with the typed ID
+        $lendBook = $bookManager->getBook($typedID);
+        $bookManager->updateBookStatusUser($user, $lendBook);
+        header("Location: user.php?id={$id}");
+   }
 
 
 

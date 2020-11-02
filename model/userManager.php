@@ -16,12 +16,10 @@ class userManager {
     $query = dataBase::getPDOConnexion()->prepare(
       "SELECT id, firstname, lastname, age, city, phone, email
        FROM User
-       WHERE id = :id
-      --  AND user_id = :user_id"
+       WHERE id = :id"
      );
     $query->execute([
-      "id" => $id,
-      // "user_id" => $user["id"]
+      "id" => $id
     ]);
     return $query->fetchAll(PDO::FETCH_CLASS, "User")[0];
   }
