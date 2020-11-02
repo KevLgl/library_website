@@ -44,7 +44,7 @@ class bookManager {
 
       return $result;
     }
-  
+  //get book with user
     public function getBooksByUser($id){
       $query = dataBase::getPDOConnexion()->prepare(
       'SELECT id, title, author, owner_id
@@ -76,7 +76,7 @@ class bookManager {
       ]); 
       return $result;
   }
-
+  // add user for one book
   public function updateBookStatusUser(User $user, Book $book):bool {
     $query = dataBase::getPDOConnexion()->prepare( 
       "UPDATE Book
@@ -89,9 +89,18 @@ class bookManager {
     ]); 
     return $result;
 }
-  // Supprime un livre 
-  public function removeBook() {
-
+  // Remove book
+  public function removeBook(Book $book) {
+    $query = dataBase::getPDOConnexion()->prepare(
+      "DELETE 
+       FROM Book
+       WHERE id = :id
+      --  AND user_id = :user_id"
+     );
+    $query->execute([
+      "id" => $book->getId(),
+      // "user_id" => $user["id"]
+    ]);
   }
 
 }
