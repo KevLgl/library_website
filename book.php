@@ -14,6 +14,9 @@ $id = htmlspecialchars($_GET["id"]);
 $bookManager = new bookManager();
 $userManager = new userManager();
 
+// get all users 
+$users = $userManager->getUsers();
+
 //creat Book selected
 $book = $bookManager->getBook($id);
 $owner_id = $book->getOwner_id();
