@@ -20,7 +20,7 @@ $owner_id = $book->getOwner_id();
 
 // get owner of the book
 $userByBook = $userManager->getUserByBook($owner_id);
-//dUPDATE BOOK TO OWNER_ID = NULL
+//UPDATE BOOK TO OWNER_ID = NULL
 if(isset($_POST['updatenull']) && !empty($_POST['updatenull'])){
     $bookManager->updateBookStatusNULL($book);
     header("Location: index.php");
@@ -30,7 +30,11 @@ if(isset($_POST['lendbook']) && !empty($_POST['lendbook'])){
      $lendUser = $userManager->getUserById($_POST['UserID']);
      $bookManager->updateBookStatusUser($lendUser, $book);
      header("Location: index.php");
-     
+}
+if(isset($_POST['removebook']) && !empty($_POST['removebook'])){
+    $removedBook = $bookManager->getBook($id);
+    $bookManager->removeBook($removedBook);
+    header("Location: index.php");
 }
 
 

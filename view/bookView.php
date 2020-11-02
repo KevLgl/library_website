@@ -29,6 +29,10 @@ include 'template/header.php';
                     <hr class="my-4">
                     <h5 class="card-title">Owner id:</h5>
                     <p class="card-text"><?php echo $book->getOwner_id(); ?></p>
+                    <hr class="my-4">
+                    <form action="" method="POST">
+                        <input  name="removebook" type="submit" value="Remove definitely" class="btn btn-danger">
+                    </form>
                 </div>
             </div>
             <!-- if user have book, show his card -->
@@ -63,11 +67,7 @@ include 'template/header.php';
             </form>
           
 
-            <?php  } 
-            // TEST $_POST
-            // var_dump($_POST);
-            // echo $_POST['UserID'];
-            ?>
+            <?php }?>
 
             </div>
         </div>
